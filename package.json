@@ -4,10 +4,10 @@
     "private": true,
     "scripts": {
         "build": "tsc --build",
-        "test:ci": "exit 0",
-        "test": "",
+        "test:ci": "tsc --build",
+        "test": "tsc --build --watch",
         "clean": "tsc --build --clean",
-        "start": "node app"
+        "start": "node ./dist/app"
     },
     "description": "mm-hmm",
     "author": "Mifield Xu",
@@ -15,9 +15,11 @@
     "dependencies": {
         "debug": "^2.2.0",
         "express": "^4.14.0",
+        "http-status-codes": "^2.1.4",
         "pug": "^2.0.0-rc.3"
     },
     "devDependencies": {
+        "@tsconfig/node14": "^1.0.0",
         "@types/debug": "0.0.30",
         "@types/express": "^4.0.37",
         "@types/express-serve-static-core": "^4.0.50",
@@ -35,5 +37,8 @@
     "bugs": {
         "url": "https://github.com/mifieldxu/mm-hmm/issues"
     },
-    "homepage": "https://github.com/mifieldxu/mm-hmm#readme"
+    "homepage": "https://github.com/mifieldxu/mm-hmm#readme",
+    "wallaby": {
+        "autoDetect": true
+    }
 }

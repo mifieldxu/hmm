@@ -1,6 +1,7 @@
 import debug = require('debug');
 import express = require('express');
 import path = require('path');
+import {StatusCodes, ReasonPhrases} from 'http-status-codes';
 
 import routes from './routes/index';
 import users from './routes/user';
@@ -17,9 +18,9 @@ app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err['status'] = 404;
+app.use((_req: express.Request, _res: express.Response, next: express.NextFunction) => {
+    const err: Error & {status?: Number} = new Error(ReasonPhrases.NOT_FOUND);
+    err.status = StatusCodes.FORBIDDEN;
     next(err);
 });
 
@@ -28,10 +29,10 @@ app.use((req, res, next) => {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use((err, req, res, next) => { // eslint-disable-line @typescript-eslint/no-unused-vars
-        res.status(err['status'] || 500);
+    app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => { // eslint-disable-line @typescript-eslint/no-unused-vars
+        res.status(err.status || StatusCodes.INTERNAL_SERVER_ERROR);
         res.render('error', {
-            message: err.message,
+            message: err.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
             error: err
         });
     });
@@ -39,10 +40,10 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use((err, req, res, next) => { // eslint-disable-line @typescript-eslint/no-unused-vars
-    res.status(err.status || 500);
+app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => { // eslint-disable-line @typescript-eslint/no-unused-vars
+    res.status(err.status || StatusCodes.INTERNAL_SERVER_ERROR);
     res.render('error', {
-        message: err.message,
+        message: err.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
         error: {}
     });
 });

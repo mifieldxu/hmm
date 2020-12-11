@@ -2,9 +2,9 @@
  * GET home page.
  */
 import express = require('express');
-const router = express.Router();
+const router: express.Router = express.Router();
 
-router.get('/', (req: express.Request, res: express.Response) => {
+router.get('/', (_req: express.Request, res: express.Response) => {
     res.render('index', { title: 'Express' });
 });
 
