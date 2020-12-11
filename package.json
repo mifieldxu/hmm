@@ -1,5 +1,5 @@
 {
-  "name": "hmm",
+  "name": "mm-hmm",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,8 @@
     "clean": "tsc --build --clean",
     "start": "node app"
   },
-  "description": "hmm",
-  "author": {
-    "name": ""
-  },
+  "description": "mm-hmm",
+  "author": "Mifield Xu",
   "main": "app.js",
   "dependencies": {
     "debug": "^2.2.0",
@@ -25,5 +23,14 @@
     "@types/node": "^8.0.14",
     "@types/serve-static": "^1.7.32",
     "typescript": "^3.2.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mifieldxu/mm-hmm.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mifieldxu/mm-hmm/issues"
+  },
+  "homepage": "https://github.com/mifieldxu/mm-hmm#readme"
 }
