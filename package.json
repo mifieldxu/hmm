@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
         "build": "tsc --build",
-        "test:ci": "tsc --build",
         "test": "tsc --build --watch",
+        "test:ci": "tsc --build",
         "clean": "tsc --build --clean",
         "start": "node ./dist/app"
     },

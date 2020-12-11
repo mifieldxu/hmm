@@ -4,3 +4,5 @@ node_js:
   - node
 notifications:
   webhooks: https://coveralls.io/webhook
+script:
+  - npm run test:ci
