@@ -3,10 +3,10 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "build": "tsc --build",
-        "test": "tsc --build --watch",
-        "test:ci": "tsc --build",
-        "clean": "tsc --build --clean",
+        "build": "tsc --project ./src/tsconfig.json && tsc --project ./src/public/tsconfig.json",
+        "clean": "tsc --project ./src/tsconfig.json --clean && tsc --project ./src/public/tsconfig.json --clean",
+        "test": "tsc --project ./src/tests/tsconfig.json && npm run build",
+        "test:ci": "tsc --project ./src/tests/tsconfig.json && npm run build",
         "start": "node ./dist/app"
     },
     "description": "mm-hmm",

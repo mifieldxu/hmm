@@ -1,6 +1,6 @@
-import debug = require('debug');
-import express = require('express');
-import path = require('path');
+import debug from 'debug';
+import express from 'express';
+import path from 'path';
 import {StatusCodes, ReasonPhrases} from 'http-status-codes';
 
 import routes from './routes/index';

@@ -1,28 +1,42 @@
+/*    This file defines the default configuration for */
+/* TypeScript-related components of this project.     */
+/*    The "real", build-time config files all inherit */
+/* from this file, and are located in subdirectories. */
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
+    // env
+    // this is the default for code that runs server-side
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    // paths
+    "baseUrl": ".",
+    "paths": { "_root": ["."] },
+    "rootDir": "./src/",
+    "outDir": "./dist/",
+    "declarationDir": "./types/",
+    // modules
     "module": "commonjs",
-    "target": "es6",
-    "lib": ["es6"],
-    "sourceMap": true,
+    "resolveJsonModule": true,
+    // code discipline
     "strict": true,
-    "declaration": true,
-    "declarationDir": "./types",
-    "declarationMap": true,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "newLine": "lf",
-    "noEmitOnError": true,
-    "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "resolveJsonModule": true,
-    "rootDir": "./src",
-    "outDir": "./dist"
+    // compilation/transpilation behaviour
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "noEmitOnError": true,
+    "newLine": "lf",
+    "noErrorTruncation": true,
+    // TypeScript syntax
+    "experimentalDecorators": true,
+    // to be overridden by inheritors
+    "noEmit": true,
   },
   "include": [
+    // for editor integration only
     "./src/**/*.ts"
   ],
   "exclude": [
