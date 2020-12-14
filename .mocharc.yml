@@ -1,0 +1,9 @@
+---
+check-leaks: true
+diff: true
+enable-source-maps: true
+parallel: true
+recursive: true
+require:
+  - esm
+trace-warnings: true

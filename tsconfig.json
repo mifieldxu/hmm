@@ -5,38 +5,42 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
-    // env
-    // this is the default for code that runs server-side
+    /* env */
+    /* this is the default for code that runs server-side */
     "target": "ESNext",
     "lib": ["ESNext"],
-    // paths
+    /* paths */
     "baseUrl": ".",
     "paths": { "_root": ["."] },
     "rootDir": "./src/",
     "outDir": "./dist/",
     "declarationDir": "./types/",
-    // modules
+    /* modules */
     "module": "commonjs",
     "resolveJsonModule": true,
-    // code discipline
+    /* code discipline */
     "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    // compilation/transpilation behaviour
+    /* use eslint for these instead */
+    // "noFallthroughCasesInSwitch": true,
+    // "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noUncheckedIndexedAccess": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": true,
+    /* compilation/transpilation behaviour */
     "importHelpers": true,
     "downlevelIteration": true,
     "noEmitOnError": true,
     "newLine": "lf",
     "noErrorTruncation": true,
-    // TypeScript syntax
+    /* TypeScript/EcmaScript syntax */
     "experimentalDecorators": true,
-    // to be overridden by inheritors
+    /* to be overridden by inheritors */
     "noEmit": true,
   },
+  /* for editor integration only */
   "include": [
-    // for editor integration only
     "./src/**/*.ts"
   ],
   "exclude": [

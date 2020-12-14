@@ -1,8 +1,17 @@
 ---
+sudo: false
 language: node_js
 node_js:
   - node
+env:
+  global:
+    - NODE_ENV=test
+    - COVERALLS_PARALLEL=true
 notifications:
   webhooks: https://coveralls.io/webhook
-script:
-  - npm run test:ci
+jobs:
+  include:
+    - script: "npm run coverage:ci && \n
+        ./node_modules/.bin/nyc report --reporter=text-lcov | \n
+        ./node_modules/coveralls/bin/coveralls.js --verbose"
+

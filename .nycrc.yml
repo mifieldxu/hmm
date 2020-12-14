@@ -1,0 +1,12 @@
+---
+extends: "@istanbuljs/nyc-config-typescript"
+all: true
+check-coverage: true
+report-dir: ./coverage
+include:
+  - ./src/
+exclude:
+  - ./src/tests/
+  - ./dist/
+  - ./types/
+  - node_modules/
