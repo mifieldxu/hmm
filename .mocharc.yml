@@ -6,4 +6,5 @@ parallel: true
 recursive: true
 require:
   - esm
+spec: ./dist/tests/
 trace-warnings: true
