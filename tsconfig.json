@@ -16,7 +16,8 @@
     "outDir": "./dist/",
     "declarationDir": "./types/",
     /* modules */
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     /* code discipline */
     "strict": true,
@@ -36,7 +37,8 @@
     "noErrorTruncation": true,
     /* TypeScript/EcmaScript syntax */
     "experimentalDecorators": true,
-    /* to be overridden by inheritors */
+    /* to be potentially overridden by inheritors */
+    "declaration": true,
     "noEmit": true,
   },
   /* for editor integration only */

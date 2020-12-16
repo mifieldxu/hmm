@@ -1,10 +1,12 @@
 import debug from 'debug';
 import express from 'express';
 import path from 'path';
+import url from 'url';
 import {StatusCodes, ReasonPhrases} from 'http-status-codes';
 
 import routes from './routes/index';
 import users from './routes/user';
+import inspector from 'inspector';
 
 const app = express();
 
@@ -50,6 +52,6 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: express.
 
 app.set('port', process.env.PORT || 3000);
 
-const server = app.listen(app.get('port'), function () {
-    debug('Express server listening on port ' + server.address().port);
+const server = app.listen(app.get('port'), function (): void {
+    debug('Express server listening on port ' + server.address()!);
 });

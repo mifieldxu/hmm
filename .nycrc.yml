@@ -1,8 +1,10 @@
 ---
-extends: "@istanbuljs/nyc-config-typescript"
-all: true
+# basic options
 check-coverage: true
-report-dir: ./coverage
+extends: '@istanbuljs/nyc-config-typescript'
+require:
+  - esm
+  - mocha
 include:
   - ./src/
 exclude:
@@ -10,3 +12,19 @@ exclude:
   - ./dist/
   - ./types/
   - node_modules/
+# reporting
+report-dir: ./coverage
+skip-full: true
+skip-empty: true
+per-file: true
+# coverage thresholds
+statements: 100
+lines:      100
+functions:  100
+branches:   100
+# instrumentation
+all: true
+# options regarding wrapping Node's native functions
+hook-require: true
+hook-run-in-context: true
+hook-run-in-this-context: true

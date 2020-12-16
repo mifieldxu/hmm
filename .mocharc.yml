@@ -6,5 +6,6 @@ parallel: true
 recursive: true
 require:
   - esm
+  - ts-node/register
 spec: ./dist/tests/
 trace-warnings: true

@@ -1,7 +1,7 @@
 /*
  * GET home page.
  */
-import express = require('express');
+import * as express from 'express';
 const router: express.Router = express.Router();
 
 router.get('/', (_req: express.Request, res: express.Response) => {
