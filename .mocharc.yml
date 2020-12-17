@@ -7,5 +7,5 @@ recursive: true
 require:
   - esm
   - ts-node/register
-spec: ./dist/tests/
+spec: ./dist/.dev/tests/
 trace-warnings: true

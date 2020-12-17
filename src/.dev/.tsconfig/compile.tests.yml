@@ -2,7 +2,7 @@
 # inherits from the source build tsconfig.json
 # with the modification that no declaration files
 # should be emitted
-extends: ./.emit.yml
+extends: ./.no.d.ts.yml
 compilerOptions: {}
   # no need for declarations, since tests aren't meant
   # to be used by people who aren't working on this project

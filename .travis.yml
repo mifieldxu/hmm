@@ -10,8 +10,9 @@ notifications:
   webhooks: https://coveralls.io/webhook
 jobs:
   include:
-    - script: "npm run start.ci coverage.ci && \n
-        ./node_modules/.bin/nyc report --reporter=text-lcov | \n
-        ./node_modules/coveralls/bin/coveralls.js --verbose"
+    # - script: "npm run start.ci coverage.ci && \n
+        # ./node_modules/.bin/nyc report --reporter=text-lcov | \n
+        # ./node_modules/coveralls/bin/coveralls.js --verbose"
+    - script: npm run start.ci test
 after_success:
   - 

@@ -20,6 +20,12 @@ scripts:
       tests:  tsc --project ./tsconfig.compile.tests.json
       default: npx nps "build.ci.server" "build.ci.client" "build.ci.tests"
   # allow for executables to be run depending on the environment
+  rebuild:
+    server:  tsc --project ./tsconfig.compile.server.json
+    client:  tsc --project ./tsconfig.compile.client.json
+    tests:   tsc --project ./tsconfig.compile.tests.json
+    default: npm run staging && nps "rebuild.server" "rebuild.client"
+    all:     npm run staging && nps "rebuild.server" "rebuild.client" "rebuild.tests"
   mocha:
     default: mocha
     watch:   mocha --watch
@@ -29,9 +35,9 @@ scripts:
     watch:   nyc --watch               nps test.watch
     ci:  npx nyc --eager --cache false nps test.ci
   test:
-    default: nps build.all        mocha
-    watch:   nps build.all.watch  mocha.watch
-    ci:  npx nps build.all        mocha.ci
+    default: nps rebuild.all        mocha
+    watch:   nps rebuild.all.watch  mocha.watch
+    ci:  npx nps rebuild.all        mocha.ci
   coverage:
     default: nps "nyc"
     watch:   nps "nyc.watch"
