@@ -1,0 +1,14 @@
+---
+# inherits from the source build tsconfig.json
+# with the modification that no declaration files
+# should be emitted
+extends: ./.no.d.ts.yml
+compilerOptions:
+  # the code in this directory is meant to be run client-side
+  # ES5 is widely-supported by all major browsers
+  target: ES5
+  lib: [ ES5 ]
+  # no need for declarations for code run in the browser
+# restrict source files to .ts files in the scripts directory
+include: [  './src/public/scripts/**/*.ts' ]
+exclude: [ '!./src/public/scripts/**/*.ts', node_modules ]

@@ -3,13 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "staging": "tsc --build ./scripts/",
-    "start": "npm run staging && nps",
-    "test": "npm run staging && nps test"
+    "prestage":        "ts-node --skip-project ./src/.dev/.prestage.ts --all",
+    "prestage.ci": "npx ts-node --skip-project ./src/.dev/.prestage.ts --all",
+    "staging":    "npm run prestage    &&     tsc --build   ./tsconfig.compile.package-scripts.json",
+    "staging.ci": "npm run prestage.ci && npx tsc --project ./tsconfig.compile.package-scripts.json",
+    "start":      "nps",
+    "start.ci":   "npm run staging && nps",
+    "test":       "nps test",
+    "test.ci":    "npm run staging && nps test.ci",
+    "precommit":  "npm run prestage"
   },
   "description": "mm-hmm",
   "author": "Mifield Xu",
-  "main": "app.js",
+  "main": "./dist/app.js",
   "dependencies": {
     "chokidar": "^3.4.3",
     "debug": "^4.3.1",
@@ -43,7 +49,8 @@
     "source-map-support": "^0.5.19",
     "ts-node": "^9.1.1",
     "tslib": "^2.0.3",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "yaml-convert": "^1.0.0"
   },
   "repository": {
     "type": "git",

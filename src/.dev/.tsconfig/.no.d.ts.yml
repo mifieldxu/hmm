@@ -1,0 +1,6 @@
+---
+extends: ./.emit.yml
+compilerOptions:
+  declaration: false
+  declarationMap: false
+  declarationDir: null

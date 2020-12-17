@@ -1,0 +1,54 @@
+---
+extends: '@tsconfig/node14/tsconfig.json'
+compilerOptions:
+  # env
+  # this is the default for code that runs server-side
+  target: ESNext
+  lib: [ ESNext ]
+  # paths
+  baseUrl: ./
+  rootDir: ./src/
+  outDir: ./dist/
+  declarationDir: ./types/
+  paths:
+    $:          [ ./src/ ]
+    $common:    [ ./src/common/ ]
+    $config:    [ ./src/common/config/ ]
+    $utils:     [ ./src/common/utils/ ]
+    $routes:    [ ./src/routes/ ]
+    $views:     [ ./src/views/ ]
+    $public:    [ ./src/public/ ]
+    $client_js: [ ./src/public/scripts/ ]
+    $dev:       [ ./src/.dev/ ]
+  # modules
+  module: ESNext
+  moduleResolution: Node
+  # code discipline
+  strict: true
+  # use eslint for these instead
+  # noFallthroughCasesInSwitch: true
+  # noImplicitReturns: true
+  # noUnusedLocals: true
+  # noUnusedParameters: true
+  # noUncheckedIndexedAccess: true
+  emitDecoratorMetadata: true
+  useDefineForClassFields: true
+  # compilation/transpilation behaviour
+  importHelpers: true
+  downlevelIteration: true
+  noEmitOnError: true
+  newLine: lf
+  noErrorTruncation: true
+  # TypeScript/EcmaScript syntax
+  experimentalDecorators: true
+  # to be potentially overridden by inheritors
+  declaration: true
+  declarationMap: true
+  sourceMap: true
+  noEmit: true
+  # for editor integration only
+include: [ ./**/*.ts ]
+exclude: 
+  - ./types/
+  - ./dist/
+  - node_modules

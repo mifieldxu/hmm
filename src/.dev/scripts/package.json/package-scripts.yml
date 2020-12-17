@@ -1,0 +1,40 @@
+scripts:
+  build:
+    # build components
+    server: tsc --build ./tsconfig.compile.server.json
+    client: tsc --build ./tsconfig.compile.client.json
+    tests:  tsc --build ./tsconfig.compile.tests.json
+    # build for production or production-like debugging environment
+    # arrays contain nps scripts that can (and should!) be concurrently run
+    default: nps "build.server"         "build.client"
+    watch:   nps "build.server --watch" "build.client --watch"
+    clean:   nps "build.server --clean" "build.client --clean"
+    # build for development
+    all:
+      default: nps "build.server"         "build.client"         "build.tests"
+      watch:   nps "build.server --watch" "build.client --watch" "build.tests --watch"
+      clean:   nps "build.server --clean" "build.client --clean" "build.tests --clean"
+    ci:
+      server: tsc --project ./tsconfig.compile.server.json
+      client: tsc --project ./tsconfig.compile.client.json
+      tests:  tsc --project ./tsconfig.compile.tests.json
+      default: npx nps "build.ci.server" "build.ci.client" "build.ci.tests"
+  # allow for executables to be run depending on the environment
+  mocha:
+    default: mocha
+    watch:   mocha --watch
+    ci:  npx mocha
+  nyc:
+    default: nyc                       nps test
+    watch:   nyc --watch               nps test.watch
+    ci:  npx nyc --eager --cache false nps test.ci
+  test:
+    default: nps build.all        mocha
+    watch:   nps build.all.watch  mocha.watch
+    ci:  npx nps build.all        mocha.ci
+  coverage:
+    default: nps "nyc"
+    watch:   nps "nyc.watch"
+    ci:  npx nps "nyc.ci"    && npx nyc report --reporter lcov | npx coveralls
+  # this is run when npm start is invoked
+  default: nps build && node ./dist/app

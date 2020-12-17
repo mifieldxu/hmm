@@ -1,51 +1,65 @@
-/*    This file defines the default configuration for */
-/* TypeScript-related components of this project.     */
-/*    The "real", build-time config files all inherit */
-/* from this file, and are located in subdirectories. */
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
-    /* env */
-    /* this is the default for code that runs server-side */
     "target": "ESNext",
-    "lib": ["ESNext"],
-    /* paths */
-    "baseUrl": ".",
-    "paths": { "_root": ["."] },
+    "lib": [
+      "ESNext"
+    ],
+    "baseUrl": "./",
     "rootDir": "./src/",
     "outDir": "./dist/",
     "declarationDir": "./types/",
-    /* modules */
+    "paths": {
+      "$": [
+        "./src/"
+      ],
+      "$common": [
+        "./src/common/"
+      ],
+      "$config": [
+        "./src/common/config/"
+      ],
+      "$utils": [
+        "./src/common/utils/"
+      ],
+      "$routes": [
+        "./src/routes/"
+      ],
+      "$views": [
+        "./src/views/"
+      ],
+      "$public": [
+        "./src/public/"
+      ],
+      "$client_js": [
+        "./src/public/scripts/"
+      ],
+      "$dev": [
+        "./src/.dev/"
+      ]
+    },
     "module": "ESNext",
     "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    /* code discipline */
     "strict": true,
-    /* use eslint for these instead */
-    // "noFallthroughCasesInSwitch": true,
-    // "noImplicitReturns": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noUncheckedIndexedAccess": true,
     "emitDecoratorMetadata": true,
     "useDefineForClassFields": true,
-    /* compilation/transpilation behaviour */
     "importHelpers": true,
     "downlevelIteration": true,
     "noEmitOnError": true,
     "newLine": "lf",
     "noErrorTruncation": true,
-    /* TypeScript/EcmaScript syntax */
     "experimentalDecorators": true,
-    /* to be potentially overridden by inheritors */
     "declaration": true,
-    "noEmit": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noEmit": true
   },
-  /* for editor integration only */
   "include": [
-    "./src/**/*.ts"
+    "./**/*.ts"
   ],
   "exclude": [
+    "./types/",
+    "./dist/",
     "node_modules"
   ]
 }

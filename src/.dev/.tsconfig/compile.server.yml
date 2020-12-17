@@ -1,0 +1,15 @@
+# default build configuration for tsc
+# inherits from the project-wide tsconfig.json
+extends: ./.emit.yml
+compilerOptions:
+  declaration: true
+  declarationMap: true
+  resolveJsonModule: true
+  module: ESNext
+# restrict source files to .ts files in this directory
+include: [ ./src/**/*.ts ]
+exclude:
+  - '!./.src/'
+  - ./src/public/
+  - ./src/.dev/
+  - node_modules

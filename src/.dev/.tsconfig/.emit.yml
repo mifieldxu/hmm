@@ -1,0 +1,4 @@
+---
+extends: ./tsconfig.yml
+compilerOptions:
+  noEmit: false

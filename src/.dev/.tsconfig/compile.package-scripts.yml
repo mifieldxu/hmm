@@ -1,0 +1,8 @@
+---
+extends: ./.no.d.ts.yml
+compilerOptions:
+  # allowSyntheticDefaultImports: true
+  importHelpers: true
+  module: commonJS
+include: [  './src/.dev/scripts/**/*.ts' ]
+exclude: [ '!./src/.dev/scripts/**/*.ts', node_modules ]
