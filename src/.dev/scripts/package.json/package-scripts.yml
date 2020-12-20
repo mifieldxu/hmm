@@ -41,6 +41,6 @@ scripts:
   coverage:
     default: nps "nyc"
     watch:   nps "nyc.watch"
-    ci:  npx nps "nyc.ci"    && npx nyc report --reporter lcov | npx coveralls
+    ci:  npx nps "nyc.ci"    && npx nyc report --reporter text-lcov | npx coveralls
   # this is run when npm start is invoked
   default: nps build && node ./dist/app

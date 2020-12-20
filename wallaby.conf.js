@@ -1,12 +1,25 @@
-module.exports = function (w) {
-
+'use strict';
+module.exports = ( _wallaby ) => {
+  process.env.NODE_ENV = 'development';
+  
   return {
+    testFramework: 'mocha',
+
     files: [
-      'src/**/*.ts'
+      './src/**/*.ts',
+      '!./src/.dev/tests/**/*.ts'
     ],
 
     tests: [
-      'test/**/*Spec.ts'
-    ]
-  };
+      './src/.dev/tests/**/*.ts'
+    ],
+
+    env: {
+      type: 'node',
+      runner: 'node',
+      params: {
+        runner: `-r ${require.resolve('esm')}`
+      }
+    }
+  }
 };

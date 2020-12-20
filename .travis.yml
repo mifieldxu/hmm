@@ -6,13 +6,10 @@ env:
   global:
     - NODE_ENV=test
     - COVERALLS_PARALLEL=true
-notifications:
-  webhooks: https://coveralls.io/webhook
 jobs:
   include:
-    # - script: "npm run start.ci coverage.ci && \n
-        # ./node_modules/.bin/nyc report --reporter=text-lcov | \n
-        # ./node_modules/coveralls/bin/coveralls.js --verbose"
-    - script: npm run start.ci test
+    - script: npm run start.ci coverage.ci
 after_success:
-  - 
+  - bash <(curl -s https://codecov.io/bash)
+notifications:
+  webhooks: https://coveralls.io/webhook

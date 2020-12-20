@@ -1,6 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
+import { URL } from 'url';
 
 export const DEFAULT_ENCODING: BufferEncoding = 'utf-8';
 export const yamlExt = [ '.yml', '.yaml' ];
