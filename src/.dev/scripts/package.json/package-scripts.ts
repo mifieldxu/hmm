@@ -33,9 +33,9 @@ interface Kwargs {
 try {
     scriptsSpec = yaml.load(fs.readFileSync(scriptsSpecFile, 'utf8'));
     
-    scriptsSpec = scan(['**'], ( { parent, key, value }: Kwargs ): void => {
+    scriptsSpec = scan(['**'], ( { parent, property, value }: Kwargs ): void => {
             if ( Array.isArray( value ) ) {
-                parent[ key ] = new ConcurrentProcesses( value );
+                parent[ property ] = new ConcurrentProcesses( value );
             }
         })(scriptsSpec);
 } catch {}
